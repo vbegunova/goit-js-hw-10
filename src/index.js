@@ -66,14 +66,13 @@ function createMarkup(arr) {
         flags: { svg },
         languages,
       }) => {
-        const languagesMarkup = Object.entries(languages)
-          .map(([_, value]) => `${value}`)
-          .join(', ');
         return `<div class="container-country"><img class="flag" src="${svg}" alt="${official}">
         <h2>${official}</h2></div>
         <p class="criteria"><span>Capital:</span>${capital}</p>
         <p class="criteria"><span>Population:</span>${population}</p>
-        <p class="criteria"><span>Languages:</span>${languagesMarkup}</p>`;
+        <p class="criteria"><span>Languages:</span>${Object.values(
+          languages
+        ).join(', ')}</p>`;
       }
     )
     .join('');

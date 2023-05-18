@@ -1,7 +1,7 @@
 import './css/styles.css';
 import debounce from 'lodash.debounce';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { fetchCountries } from './fetchCountries';
+import { fetchCountries } from './helpers/fetchCountries';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -20,7 +20,6 @@ function onInput(evt) {
 
   fetchCountries(country)
     .then(data => {
-      console.log(data);
       if (data.length >= 2 && data.length < 10) {
         list.innerHTML = createList(data);
         info.innerHTML = '';
